@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력값 출력 예제</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      label,
+      input {
+        margin-bottom: 10px;
+        display: block;
+      }
+      #output {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>정보 입력</h1>
+    <label for="name">월</label>
+    <input type="number" id="month" placeholder="몇 월인지 작성하세요" />
+    <label for="name">일</label>
+    <input type="number" id="day" placeholder="며칠인지 작성하세요" />
+    <label for="name">오늘 나간 진도</label>
+    <input type="text" id="study" placeholder="오늘 나간 진도를 작성하세요" />
+    <label for="name">숙제</label>
+    <input
+      type="text"
+      id="hw"
+      placeholder="오늘 까지 해야 했던 숙제를 적어주세요"
+    />
+    <label for="name">숙제 여부</label>
+    <input type="text" id="did" placeholder="숙제를 했나요?" />
+
+    <label for="like">시험 점수</label>
+    <input
+      type="text"
+      id="score"
+      placeholder="시험 점수를 맞은 개수/전체 문제 개수 형식으로 작성하세요"
+    />
+    <label for="name">오늘 숙제</label>
+    <input
+      type="text"
+      id="today"
+      placeholder="오늘 까지 해야하는 숙제를 적어주세요"
+    />
+    <label for="name">새 숙제</label>
+    <input
+      type="text"
+      id="new"
+      placeholder="내일 까지 해야하는 숙제를 적어주세요"
+    />
+    <button onclick="generateOutput()">출력</button>
+
+    <p id="output"></p>
+
+    <script>
+      function generateOutput() {
+        // 입력값 가져오기
+        const month = document.getElementById("month").value;
+        const day = document.getElementById("day").value;
+        const study = document.getElementById("study").value;
+        const hw = document.getElementById("hw").value;
+        const did = document.getElementById("did").value;
+        const score = document.getElementById("score").value;
+        const today = document.getElementById("today").value;
+        const newt = document.getElementById("new").value;
+
+        // 문장 생성
+        const outputText = `${month}월 ${day}일\n오늘 나간 진도 : ${study}\n어제의 숙제 : ${hw}\n숙제 확인: ${did}\n시험 점수 : ${score}\n오늘 제출해야 할 숙제 : ${today}\n내일 제출해야 할 숙제 : ${newt}\n\n수고하셨습니다.`;
+
+        // 결과 출력
+        document.getElementById("output").innerText = outputText;
+      }
+    </script>
+  </body>
+</html>
